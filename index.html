@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wedding Countdown Timer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .timer {
+      font-size: 40px;
+      margin-top: 50px;
+    }
+
+    .message {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    .heart {
+      color: #ff6398;
+    }
+  </style>
+</head>
+<body>
+  <h1>Countdown to Our Wedding</h1>
+  <div class="timer" id="countdown"></div>
+  <div class="message">until the big day!</div>
+
+  <script>
+    // Set the wedding date
+    var weddingDate = new Date("April 19, 2025").getTime();
+
+    // Update the countdown every second
+    var countdown = setInterval(function() {
+      // Get the current date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the wedding date
+      var distance = weddingDate - now;
+
+      // Calculate days, hours, minutes, and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the countdown
+      document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+
+      // Display a message when the countdown is finished
+      if (distance < 0) {
+        clearInterval(countdown);
+        document.getElementById("countdown").innerHTML = "Congratulations!";
+        document.getElementsByClassName("message")[0].innerHTML = "You're getting married!";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
