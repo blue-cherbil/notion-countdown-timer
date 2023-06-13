@@ -26,19 +26,35 @@
       text-transform: uppercase;
       color: #000000;
     }
+    
+    .text {
+      font-size: 12px;
+      margin-top: 5px;
+      letter-spacing: 8px;
+    }
   </style>
 </head>
 <body>
   <div class="timer-container">
-    <div class="timer" id="years"></div>
-    <div class="unit">Years</div>
-    <div class="timer" id="months"></div>
-    <div class="unit">Months</div>
-    <div class="timer" id="weeks"></div>
-    <div class="unit">Weeks</div>
-    <div class="timer" id="days"></div>
-    <div class="unit">Days</div>
+    <div>
+      <div class="timer" id="years"></div>
+      <div class="unit">Y E A R</div>
+    </div>
+    <div>
+      <div class="timer" id="months"></div>
+      <div class="unit">M O N T H</div>
+    </div>
+    <div>
+      <div class="timer" id="weeks"></div>
+      <div class="unit">W E E K</div>
+    </div>
+    <div>
+      <div class="timer" id="days"></div>
+      <div class="unit">D A Y</div>
+    </div>
   </div>
+  
+  <div class="text">UNTIL THE BIG DAY!</div>
 
   <script>
     // Set the wedding date
@@ -71,6 +87,7 @@
         document.getElementById("months").innerHTML = "";
         document.getElementById("weeks").innerHTML = "";
         document.getElementById("days").innerHTML = "";
+        document.getElementsByClassName("text")[0].innerHTML = "You're getting married!";
       }
     }, 1000);
   </script>
