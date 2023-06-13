@@ -8,35 +8,37 @@
       text-align: center;
     }
 
-    .timer {
-      font-size: 40px;
+    .timer-container {
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
       margin-top: 50px;
-      color: #000000;
+      font-size: 28px;
+    }
+
+    .timer {
+      font-weight: bold;
+      margin: 0 10px;
     }
 
     .unit {
-      font-size: 24px;
-      text-transform: uppercase;
-    }
-
-    .message {
       font-size: 18px;
-      margin-top: 10px;
+      text-transform: uppercase;
       color: #000000;
     }
   </style>
 </head>
 <body>
-  <h1>Countdown to Our Wedding</h1>
-  <div class="timer" id="countdown"></div>
-  <div class="unit">Years</div>
-  <div class="timer" id="months"></div>
-  <div class="unit">Months</div>
-  <div class="timer" id="weeks"></div>
-  <div class="unit">Weeks</div>
-  <div class="timer" id="days"></div>
-  <div class="unit">Days</div>
-  <div class="message">until the big day!</div>
+  <div class="timer-container">
+    <div class="timer" id="years"></div>
+    <div class="unit">Years</div>
+    <div class="timer" id="months"></div>
+    <div class="unit">Months</div>
+    <div class="timer" id="weeks"></div>
+    <div class="unit">Weeks</div>
+    <div class="timer" id="days"></div>
+    <div class="unit">Days</div>
+  </div>
 
   <script>
     // Set the wedding date
@@ -57,7 +59,7 @@
       var days = Math.floor((distance % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
 
       // Display the countdown
-      document.getElementById("countdown").innerHTML = years;
+      document.getElementById("years").innerHTML = years;
       document.getElementById("months").innerHTML = months;
       document.getElementById("weeks").innerHTML = weeks;
       document.getElementById("days").innerHTML = days;
@@ -65,11 +67,10 @@
       // Display a message when the countdown is finished
       if (distance < 0) {
         clearInterval(countdown);
-        document.getElementById("countdown").innerHTML = "Congratulations!";
+        document.getElementById("years").innerHTML = "Congratulations!";
         document.getElementById("months").innerHTML = "";
         document.getElementById("weeks").innerHTML = "";
         document.getElementById("days").innerHTML = "";
-        document.getElementsByClassName("message")[0].innerHTML = "You're getting married!";
       }
     }, 1000);
   </script>
